@@ -1,0 +1,12 @@
+services:
+  # PHPUnit assertion method calls like `->assertSame(true, $foo)` should be written with dedicated method like `->assertTrue($foo)`.
+  PhpCsFixer\Fixer\PhpUnit\PhpUnitConstructFixer: ~
+
+  # PHPUnit assertions like `assertInternalType`, `assertFileExists`, should be used over `assertTrue`.
+  PhpCsFixer\Fixer\PhpUnit\PhpUnitDedicateAssertFixer: ~
+
+  # Usages of `->getMock` and `->getMockWithoutInvokingTheOriginalConstructor` methods MUST be replaced by `->createMock` or `->createPartialMock` methods.
+  PhpCsFixer\Fixer\PhpUnit\PhpUnitMockFixer: ~
+
+  # PHPUnit classes MUST be used in namespaced version, eg `\PHPUnit\Framework\TestCase` instead of `\PHPUnit_Framework_TestCase`.
+  PhpCsFixer\Fixer\PhpUnit\PhpUnitNamespacedFixer: ~

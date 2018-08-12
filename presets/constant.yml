@@ -1,0 +1,4 @@
+services:
+  # Magic constants should be referred to using the correct casing.
+  # __dir__ → __DIR__
+  PhpCsFixer\Fixer\Casing\MagicConstantCasingFixer: ~

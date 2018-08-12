@@ -1,0 +1,16 @@
+services:
+  # Suppressing Errors is not allowed.
+  # @でエラーを抑制してはいけません。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\NoSilencedErrorsSniff:
+    error: true
+
+  # Error control operator should be removed.
+  # エラー制御オペレータは削除する必要があります。
+  # @mkdir($dir) → mkdir($dir)
+  PhpCsFixer\Fixer\LanguageConstruct\ErrorSuppressionFixer:
+    noise_remaining_usages: true
+
+  # In PHP 7.0, a Throwable interface was added that allows catching and handling errors in more cases than Exception previously allowed. So, if the catch statement contained Exception on PHP 5.x, it means it should probably be rewritten to reference Throwable on PHP 7.x. This sniff enforces that.
+  # \Exceptionをキャッチするより\Throwableをキャッチしてください。
+  SlevomatCodingStandard\Sniffs\Exceptions\ReferenceThrowableOnlySniff: ~
+

@@ -1,0 +1,28 @@
+services:
+  # Checks that there is no empty line after the opening brace of a function.
+  # 関数の中括弧の後に空行がないかどうかをチェックします。
+  # function a() {\n} → function a() {}
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\FunctionOpeningBraceSpaceSniff: ~
+
+  # A return statement wishing to return `void` should not return `null`.
+  # return null; → return;
+  PhpCsFixer\Fixer\ReturnNotation\SimplifiedNullReturnFixer: ~
+
+  # There should not be an empty `return` statement at the end of a function.
+  # function foo () { return; } → function foo () {}
+  PhpCsFixer\Fixer\ReturnNotation\NoUselessReturnFixer: ~
+
+  # In function arguments there must not be arguments with default values before
+  # non-default ones.
+  # function example($foo = "two words", $bar) {} →
+  # function example($foo, $bar) {}
+  PhpCsFixer\Fixer\FunctionNotation\NoUnreachableDefaultArgumentValueFixer: ~
+
+  # Local, dynamic and directly referenced variables should not be assigned and
+  # directly returned by a function or method.
+  # function a() { $a = 1; return $a; } → function a() { return 1; }
+  PhpCsFixer\Fixer\ReturnNotation\ReturnAssignmentFixer: ~
+
+  # Looks for unused parameters.
+  # 使用されない引数は削除してください。
+  SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff: ~

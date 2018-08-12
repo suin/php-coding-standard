@@ -1,0 +1,44 @@
+services:
+  # Using `isset($var) &&` multiple times should be done in one call.
+  # isset（$a）&& isset($b)よりもisset($a, $b)を使用してください。
+  PhpCsFixer\Fixer\LanguageConstruct\CombineConsecutiveIssetsFixer: ~
+
+  # Calling `unset` on multiple items should be done in one call.
+  # unset($a); unset($b)よりもunset($a, $b)を使用してください。
+  PhpCsFixer\Fixer\LanguageConstruct\CombineConsecutiveUnsetsFixer: ~
+
+  # Replaces `dirname(__FILE__)` expression with equivalent `__DIR__` constant.
+  # dirname(__FILE__) → __DIR__
+  PhpCsFixer\Fixer\LanguageConstruct\DirConstantFixer: ~
+
+  # Replace core functions calls returning constants with the constants.
+  # 定数で同じ値が取得できる関数は使用しないでください。
+  # phpversion() → PHP_VERSION
+  PhpCsFixer\Fixer\LanguageConstruct\FunctionToConstantFixer: ~
+
+  # Replaces `is_null($var)` expression with `null === $var`.
+  # is_null($var)関数の代わりに$var === nullを使用してください。
+  PhpCsFixer\Fixer\LanguageConstruct\IsNullFixer:
+    use_yoda_style: false
+
+  # Master functions shall be used instead of aliases.
+  # join → implode, is_integer → is_int, fputs → fwrite and so on.
+  PhpCsFixer\Fixer\Alias\NoAliasFunctionsFixer: ~
+
+  # Either language construct `print` or `echo` should be used.
+  # print → echo
+  PhpCsFixer\Fixer\Alias\NoMixedEchoPrintFixer: ~
+
+  # Converts `pow` to the `**` operator.
+  PhpCsFixer\Fixer\Alias\PowToExponentiationFixer: ~
+
+  # Replaces `rand`, `srand`, `getrandmax` functions calls with their `mt_*` analogs.
+  PhpCsFixer\Fixer\Alias\RandomApiMigrationFixer: ~
+
+  # Disallow the use of the backtick operator for execution of shell commands.
+  # バックティック演算子でシェルコマンドを呼び出さないでください。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\BacktickOperatorSniff: ~
+
+  # Converts backtick operators to `shell_exec` calls.
+  # バックティック演算子の代わりに`shell_exec`を使用してください。
+  PhpCsFixer\Fixer\Alias\BacktickToShellExecFixer: ~

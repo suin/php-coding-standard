@@ -1,0 +1,60 @@
+services:
+  # Replace all `<>` with `!=`.
+  # <>オペレーターの代わりに!=オペレーターを使用してください。
+  PhpCsFixer\Fixer\Operator\StandardizeNotEqualsFixer: ~
+
+  # Standardize spaces around ternary operator.
+  PhpCsFixer\Fixer\Operator\TernaryOperatorSpacesFixer: ~
+
+  # Use `null` coalescing operator `??` where possible.
+  PhpCsFixer\Fixer\Operator\TernaryToNullCoalescingFixer: ~
+
+  # Unary operators should be placed adjacent to their operands.
+  PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
+
+  # Disallows using loose == and != comparison operators. Use === and !==
+  # instead, they are much more secure and predictable.
+  SlevomatCodingStandard\Sniffs\ControlStructures\DisallowEqualOperatorsSniff: ~
+
+  # Requires use of null coalesce operator when possible.
+  # NULL合体演算子が使えるときは使用してください。
+  SlevomatCodingStandard\Sniffs\ControlStructures\RequireNullCoalesceOperatorSniff: ~
+
+  # Requires short ternary operator ?: when possible.
+  # 短い三項演算子が使えるときは使用してください。
+  SlevomatCodingStandard\Sniffs\ControlStructures\RequireShortTernaryOperatorSniff: ~
+
+  # Verifies that operators have valid spacing surrounding them.
+  # オペレータがそれらの周囲に有効なスペースを持っていることを確認します。
+  # $foo||$bar → $foo || $bar
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\LogicalOperatorSpacingSniff: ~
+
+  # All binary and ternary (but not unary) operators MUST be preceded and
+  # followed by at least one space. This includes all arithmetic, comparison,
+  # assignment, bitwise, logical (excluding ! which is unary), string
+  # concatenation, type operators, trait operators (insteadof and as), and the
+  # single pipe operator (e.g. ExceptionType1 | ExceptionType2 $e).
+  # すべてのバイナリと3進（単項演算子ではない）演算子の前には、少なくとも1つのスペースを続けなければならない（MUST）。 これには、すべての算術、比較、代入、ビット単位、論理的（単項式である！を除く）、文字列連結、型演算子、代数演算子（代わりにおよびas）、単一パイプ演算子（ExceptionType1 | ExceptionType2 $ eなど）が含まれます。
+  # $foo===1 → $foo === 1
+  PHP_CodeSniffer\Standards\PSR12\Sniffs\Operators\OperatorSpacingSniff:
+    ignoreNewlines: true
+
+  # Binary operators should be surrounded by single space.
+  # バイナリ演算子は、単一のスペースで囲む必要があります。
+  PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer: ~
+
+  # Concatenation should be spaced according configuration.
+  # コンカチネーションは設定に従って配置しなければなりません。
+  # 'baz'.'qux' → 'baz' . 'qux'
+  PhpCsFixer\Fixer\Operator\ConcatSpaceFixer:
+    spacing: one
+
+  # Use `&&` and `||` logical operators instead of `and` and `or`.
+  PhpCsFixer\Fixer\Operator\LogicalOperatorsFixer: ~
+
+  # Write conditions in Yoda style (`true`), non-Yoda style (`false`) or ignore
+  # those conditions (`null`) based on configuration.
+  PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer:
+    equal: false
+    identical: false
+

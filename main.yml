@@ -1,0 +1,41 @@
+imports:
+- { resource: presets/psr2.yml }
+- { resource: presets/ascii.yml }
+- { resource: presets/line.yml }
+- { resource: presets/open-tag.yml }
+- { resource: presets/operator.yml }
+- { resource: presets/type-declaration.yml }
+- { resource: presets/semicolon.yml }
+- { resource: presets/parentheses.yml }
+- { resource: presets/cast.yml }
+- { resource: presets/string.yml }
+- { resource: presets/array.yml }
+- { resource: presets/list.yml }
+- { resource: presets/comment.yml }
+- { resource: presets/global.yml }
+- { resource: presets/include.yml }
+- { resource: presets/function-use.yml }
+- { resource: presets/error-handling.yml }
+- { resource: presets/class.yml }
+- { resource: presets/class-use.yml }
+- { resource: presets/phpdoc.yml }
+- { resource: presets/phpunit.yml }
+- { resource: presets/namespace.yml }
+- { resource: presets/namespace-use.yml }
+- { resource: presets/metrics.yml }
+- { resource: presets/deprecated.yml }
+- { resource: presets/better-alternatives.yml }
+- { resource: presets/probable-bugs.yml }
+- { resource: presets/object-calisthenics.yml }
+- { resource: presets/clean-function-design.yml }
+- { resource: presets/testable-class-design.yml }
+- { resource: presets/performance.yml }
+- { resource: presets/forbidden-function.yml }
+
+services:
+  # For projects not following the PSR-0 or PSR-4 autoloading standards, this
+  # sniff checks whether a namespace and a name of a class/interface/trait
+  # follows agreed-on way to organize code into directories and files.
+  # ファイル名はPSR-0、PSR-4に従う必要があります。
+  SlevomatCodingStandard\Sniffs\Files\TypeNameMatchesFileNameSniff:
+    rootNamespaces: ["src=>Example"]

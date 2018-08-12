@@ -1,0 +1,41 @@
+# Array • 配列
+services:
+  # Short array syntax must be used to define arrays.
+  # PHP配列は、短い構文を使用して宣言する必要があります。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\Arrays\DisallowLongArraySyntaxSniff: ~
+
+  # PHP arrays should be declared using the short syntax.
+  # PHP配列は、短い構文を使用して宣言する必要があります。
+  PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer:
+    syntax: short
+
+  # Each element of an array must be indented exactly once.
+  # 配列の各要素は、一度だけインデントされなければなりません。
+  PhpCsFixer\Fixer\Whitespace\ArrayIndentationFixer: ~
+
+  # In array declaration, there MUST be a whitespace after each comma.
+  PhpCsFixer\Fixer\ArrayNotation\WhitespaceAfterCommaInArrayFixer: ~
+
+  # Arrays should be formatted like function/method arguments, without leading or trailing single line space.
+  PhpCsFixer\Fixer\ArrayNotation\TrimArraySpacesFixer: ~
+
+  # PHP multi-line arrays should have a trailing comma.
+  PhpCsFixer\Fixer\ArrayNotation\TrailingCommaInMultilineArrayFixer: ~
+
+  # In array declaration, there MUST NOT be a whitespace before each comma.
+  PhpCsFixer\Fixer\ArrayNotation\NoWhitespaceBeforeCommaInArrayFixer: ~
+
+  # PHP single-line arrays should not have trailing comma.
+  # array('sample',  ); → array('sample');
+  PhpCsFixer\Fixer\ArrayNotation\NoTrailingCommaInSinglelineArrayFixer: ~
+
+  # Operator `=>` should not be surrounded by multi-line whitespaces.
+  # ['a'\n\n=> 1] → ['a' => 1]
+  PhpCsFixer\Fixer\ArrayNotation\NoMultilineWhitespaceAroundDoubleArrowFixer: ~
+
+  # Array index should always be written by using square braces.
+  PhpCsFixer\Fixer\ArrayNotation\NormalizeIndexBraceFixer: ~
+
+  # There MUST NOT be spaces around offset braces.
+  # $b [ 'a' ] [ 'b' ] → $b['a']['b']
+  PhpCsFixer\Fixer\Whitespace\NoSpacesAroundOffsetFixer: ~

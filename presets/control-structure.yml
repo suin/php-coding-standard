@@ -1,0 +1,45 @@
+services:
+  # Variable assignments should not be made within conditions.
+  # 条件内で変数の割り当てを行うべきではありません。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\AssignmentInConditionSniff: ~
+  SlevomatCodingStandard\Sniffs\ControlStructures\AssignmentInConditionSniff: ~
+
+  # Control structures must have at least one statement inside of the body.
+  # 制御構造には、本体の内部に少なくとも1つのステートメントが必要です。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\EmptyStatementSniff: ~
+
+  # For loops that have only a second expression (the condition) should be converted to while loops.
+  # 2番目の式のみを持つforループ（条件）はwhileループに変換する必要があります。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\ForLoopShouldBeWhileLoopSniff: ~
+
+  # Incrementers in nested loops should use different variable names.
+  # ネストされたループのインクリメンタは、異なる変数名を使用する必要があります。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\JumbledIncrementerSniff: ~
+
+  # If statements that are always evaluated should not be used.
+  # 常に評価されるステートメントを使用しないでください。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\UnconditionalIfStatementSniff: ~
+
+  # An empty line feed must precede any configured statement.
+  # 空行改行は、ステートメントの前に置く必要があります。
+  PhpCsFixer\Fixer\Whitespace\BlankLineBeforeStatementFixer:
+    statements:
+    - declare
+    - do
+    - for
+    - foreach
+    - if
+    - switch
+    - try
+
+  # Replace control structure alternative syntax to use braces.
+  # if (...): ... else: ... endif → if (...) { ... } else { ... }
+  PhpCsFixer\Fixer\ControlStructure\NoAlternativeSyntaxFixer: ~
+
+  # There should not be useless `else` cases.
+  # 必要のないelseを使用しないでください。
+  PhpCsFixer\Fixer\ControlStructure\NoUselessElseFixer: ~
+
+  # Removes unneeded curly braces that are superfluous and aren't part of a
+  # control structure's body.
+  PhpCsFixer\Fixer\ControlStructure\NoUnneededCurlyBracesFixer: ~

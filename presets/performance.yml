@@ -1,0 +1,14 @@
+services:
+  # For loops should not call functions inside the test for the loop when they can be computed beforehand.
+  # forループの中でcountしないでください。
+  # for ($i = 0; $i < count($foo); $i++)
+  # → $total = count($foo); for ($i = 0; $i < $total; $i++)
+  PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\ForLoopWithTestFunctionCallSniff: ~
+
+  # All references to global constants must be referenced via a fully qualified name.
+  # グローバル定数はFQNで参照してください。
+  SlevomatCodingStandard\Sniffs\Namespaces\FullyQualifiedGlobalConstantsSniff: ~
+
+  # All references to global functions must be referenced via a fully qualified name.
+  # グローバル関数はFQNで参照してください。
+  SlevomatCodingStandard\Sniffs\Namespaces\FullyQualifiedGlobalFunctionsSniff: ~

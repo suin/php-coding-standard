@@ -1,0 +1,29 @@
+services:
+  # Semicolons should not have spaces before them.
+  # セミコロンの前にスペースを入れてはいけません。
+  # echo 'hi' ; → echo 'hi';
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\CSS\SemicolonSpacingSniff: ~
+
+  # Looks for useless semicolons.
+  # 不要なセミコロンを残さないでください。
+  SlevomatCodingStandard\Sniffs\PHP\UselessSemicolonSniff: ~
+
+  # Remove useless semicolon statements.
+  # $a = 1;; → $a = 1;
+  PhpCsFixer\Fixer\Semicolon\NoEmptyStatementFixer: ~
+
+  # Forbid multi-line whitespace before the closing semicolon or move the semicolon to the new line for chained calls.
+  # return 1 + 2\n; → return 1 + 2;
+  PhpCsFixer\Fixer\Semicolon\MultilineWhitespaceBeforeSemicolonsFixer: ~
+
+  # Single-line whitespace before closing semicolon are prohibited.
+  # $this->foo() ; → $this->foo();
+  PhpCsFixer\Fixer\Semicolon\NoSinglelineWhitespaceBeforeSemicolonsFixer: ~
+
+  # Instructions must be terminated with a semicolon.
+  # <?php echo 1 ?> → <?php echo 1; ?>
+  PhpCsFixer\Fixer\Semicolon\SemicolonAfterInstructionFixer: ~
+
+  # Fix whitespace after a semicolon.
+  PhpCsFixer\Fixer\Semicolon\SpaceAfterSemicolonFixer:
+    remove_in_empty_for_expressions: true

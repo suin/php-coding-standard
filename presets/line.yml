@@ -1,0 +1,40 @@
+# Line • 行
+services:
+  # It is recommended to keep lines at approximately 80 characters long for
+  # better code readability.
+  # 1行は80文字以内にする必要があります。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff:
+    lineLimit: 80
+    absoluteLineLimit: 80
+
+  # Array items, method parameters, method call arguments, new arguments should
+  # be on same/standalone line to fit line length.
+  Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer:
+    line_length: 80
+    break_long_lines: true
+    inline_short_lines: true
+
+  # Multiple statements are not allowed on a single line.
+  # 1つの行に複数のステートメントを使用することはできません。
+  # $foo = 1; $bar = 2; → $foo = 1;\n$bar = 2;
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\PHP\DisallowMultipleAssignmentsSniff: ~
+
+  # Removes extra blank lines.
+  PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer:
+    tokens:
+    - break
+    - case
+    - continue
+    - curly_brace_block
+    - default
+    - extra
+    - parenthesis_brace_block
+    - return
+    - square_brace_block
+    - switch
+    - throw
+    - use
+    - use_trait
+
+  # Remove trailing whitespace at the end of blank lines.
+  PhpCsFixer\Fixer\Whitespace\NoWhitespaceInBlankLineFixer: ~

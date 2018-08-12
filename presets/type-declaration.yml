@@ -1,0 +1,45 @@
+services:
+  # Force strict types declaration in all files.
+  # すべてのファイルで厳密な型宣言を強制します。
+  PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer: ~
+
+  # Remove extra spaces in a nullable typehint.
+  # nullable型ヒント内の余分なスペースを削除します。
+  # function sample(? string $str): ? string →
+  # function sample(?string $str): ?string
+  PhpCsFixer\Fixer\Whitespace\CompactNullableTypehintFixer: ~
+
+  # 関数とメソッドの型宣言は必要です。arrayの要素はPHPDocで型を説明してください。
+  # PHPDocは役立つ情報のみ記載してください。型宣言と同じ情報をPHPDocに書かないでください。
+  SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff:
+    allAnnotationsAreUseful: true
+    enableEachParameterAndReturnInspection: true
+
+  # Checks whether the nullablity ? symbol is present before each nullable and
+  # optional parameter (which are marked as = null):
+  # デフォルト値がnullの引数は、nullable型宣言が必要です。
+  SlevomatCodingStandard\Sniffs\TypeHints\NullableTypeForNullDefaultValueSniff: ~
+
+  # Add void return type to functions with missing or empty return statements,
+  # but priority is given to `@return` annotations.
+  PhpCsFixer\Fixer\FunctionNotation\VoidReturnFixer: ~
+
+  # All PHP types used for parameter type and return type declarations should be
+  # lowercase.
+  # パラメータ型と戻り値の型宣言に使用されるすべてのPHP型は、小文字にする必要があります。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\LowerCaseTypeSniff: ~
+
+  # Short form of type keywords MUST be used i.e. bool instead of boolean, int
+  # instead of integer etc.
+  # 型宣言は短いほうを使用してください。例えば、booleanよりbool、integerよりintを使用する。
+  PHP_CodeSniffer\Standards\PSR12\Sniffs\Keywords\ShortFormTypeKeywordsSniff: ~
+
+  # Add missing space between function's argument and its typehint.
+  # 関数の引数とその型ヒントの間に空白スペースを追加します。
+  # function sample(array$a) → function sample(array $a)
+  PhpCsFixer\Fixer\FunctionNotation\FunctionTypehintSpaceFixer: ~
+
+  # There should be one or no space before colon, and one space after it in
+  # return type declarations, according to configuration.
+  # function foo(int $a):string → function foo(int $a): string
+  PhpCsFixer\Fixer\FunctionNotation\ReturnTypeDeclarationFixer: ~

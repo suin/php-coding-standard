@@ -1,0 +1,53 @@
+# Object Calisthenics • オブジェクト指向エキササイズ
+# https://williamdurand.fr/2013/06/03/object-calisthenics/
+services:
+  # 1. Only One Level Of Indentation Per Method
+  #    1つのメソッドにつきインデントは1段階までにすること
+  ObjectCalisthenics\Sniffs\Metrics\MaxNestingLevelSniff:
+    maxNestingLevel: 1
+
+  # 2. Don’t Use The ELSE Keyword
+  #    else句を使用しないこと
+  ObjectCalisthenics\Sniffs\ControlStructures\NoElseSniff: ~
+
+  # 3. Wrap All Primitives And Strings
+  #    すべてのプリミティブ型と文字列型をラップすること
+  # ...There is no fixer or sniffer for this rule...
+
+  # 4. First Class Collections
+  #    ファーストクラスコレクションを使用すること
+  # ...There is no fixer or sniffer for this rule...
+
+  # 5. One Dot(object operator) Per Line
+  #    1行につきドット(オブジェクトオペレーター)は1つまでにすること
+  ObjectCalisthenics\Sniffs\CodeAnalysis\OneObjectOperatorPerLineSniff:
+    variablesHoldingAFluentInterface: ["$queryBuilder", "$containerBuilder"]
+    methodsStartingAFluentInterface: ["createQueryBuilder"]
+    methodsEndingAFluentInterface: ["execute", "getQuery"]
+
+  # 6. Don’t Abbreviate
+  #    名前を省略しないこと
+  ObjectCalisthenics\Sniffs\NamingConventions\ElementNameMinimalLengthSniff:
+    minLength: 3
+    allowedShortNames: ["i", "id", "to", "up"]
+
+  # 7. Keep All Entities Small
+  #    すべてのエンティティを小さくすること
+  ObjectCalisthenics\Sniffs\Files\ClassTraitAndInterfaceLengthSniff:
+    maxLength: 200
+  ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff:
+    maxLength: 20
+  ObjectCalisthenics\Sniffs\Metrics\PropertyPerClassLimitSniff:
+    maxCount: 10
+  ObjectCalisthenics\Sniffs\Metrics\MethodPerClassLimitSniff:
+    maxCount: 10
+
+  # 8. No Classes With More Than Two Instance Variables
+  #    1つのクラスにつきインスタンス変数は2つまでにすること
+  # ...There is no fixer or sniffer for this rule...
+
+  # 9. No Getters/Setters/Properties
+  #    Getter, Setter, プロパティを使用しないこと
+  ObjectCalisthenics\Sniffs\NamingConventions\NoSetterSniff:
+    allowedClasses:
+    - '*\DataObject'

@@ -1,0 +1,24 @@
+# Probable Bugs • 潜在的なバグ
+services:
+  # Class and Interface names should be unique in a project. They should never
+  # be duplicated.
+  # クラス名とインタフェース名はプロジェクト内で一意でなければなりません。それらは決して複製される
+  # べきではありません。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\Classes\DuplicateClassNameSniff: ~
+
+  # The use of inner functions is forbidden.
+  # 関数の中で関数を定義してはいけません。
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\PHP\InnerFunctionsSniff: ~
+
+  # Warns about code that can never been executed.
+  # 到達できないコードが存在してはいけません。
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\PHP\NonExecutableCodeSniff: ~
+
+  # Checks for usage of $this in static methods, which will cause runtime
+  # errors.
+  # 静的メソッドで$thisを使用してはいけません。これは実行時エラーを引き起こします。
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\Scope\StaticThisUsageSniff: ~
+
+  # This sniff finds unreachable catch blocks.
+  # 複数の例外をcatchする場合は、型が詳細な順に並べてください。
+  SlevomatCodingStandard\Sniffs\Exceptions\DeadCatchSniff: ~

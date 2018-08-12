@@ -1,0 +1,101 @@
+# Class Notation • クラスの記法
+services:
+  # Methods should not be declared final inside of classes that are declared
+  # final.
+  # メソッドはfinal宣言されたクラスの中でfinal宣言されるべきではありません。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\UnnecessaryFinalModifierSniff: ~
+
+  # A final class must not have final methods.
+  PhpCsFixer\Fixer\ClassNotation\NoUnneededFinalMethodFixer: ~
+
+  # Non-abstract class that implements interface should be final.
+  Symplify\CodingStandard\Fixer\Solid\FinalInterfaceFixer: ~
+
+  # All internal classes should be final except abstract ones.
+  SlamCsFixer\FinalInternalClassFixer: ~
+
+  # Internal classes should be `final`.
+  # 内部クラスは `final`でなければなりません。
+  PhpCsFixer\Fixer\ClassNotation\FinalInternalClassFixer:
+    annotation-white-list: ['@@internal']
+
+  PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer:
+    elements: [property, method, const]
+
+  PhpCsFixer\Fixer\ClassNotation\SingleClassElementPerStatementFixer:
+    elements: [property, const]
+
+  # In PHP 7.1+ it's possible to declare visibility of class constants. In a
+  # similar vein to optional declaration of visibility for properties and
+  # methods which is actually required in sane coding standards, this sniff also
+  # requires declaring visibility for all class constants.
+  # クラス定数はアクセス権を明示してください。
+  SlevomatCodingStandard\Sniffs\Classes\ClassConstantVisibilitySniff: ~
+
+  # Methods should not be defined that only call the parent method.
+  # 親メソッドだけを呼び出すメソッドを定義すべきではありません。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\UselessOverridingMethodSniff: ~
+
+  # Produces an error if your class uses undeclared member variables. Only warns
+  # if class extends another class.
+  # プロパティを宣言する必要があります。
+  Codor\Sniffs\Classes\PropertyDeclarationSniff: ~
+
+  # Class constructors must not contain any loops.
+  # コンストラクタ内でループを使用しないでください。ループはprivateメソッドに移譲してください。
+  Codor\Sniffs\Classes\ConstructorLoopSniff: ~
+
+  # Only allows for 1 line between functions/methods. Any more than 1 will
+  # produce an error.
+  # メソッド定義とメソッド定義の間の空行は1行のみにしてください。
+  # Codor\Sniffs\Syntax\LinesAfterMethodSniff: ~
+
+  # Class, trait and interface elements must be separated with one blank line.
+  # クラス、特性、およびインターフェース要素は、1つの空白行で区切らなければなりません。
+  PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer: ~
+
+  # Although PHP_CodeSniffer is not suitable for static analysis because it is
+  # limited to analysing one file at a time, it is possible to use it to perform
+  # certain checks. UnusedPrivateElementsSniff checks for unused methods, unused
+  # or write-only properties in a class and unused private constants. Reported
+  # unused elements are safe to remove.
+  # 使用されないprivateメンバはクラスから削除してください。
+  SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff: ~
+
+  # Magic PHP methods (__*()) should respect their casing form
+  Symplify\CodingStandard\Fixer\Naming\MagicMethodsNamingFixer: ~
+
+  # Array property should have default value, to prevent undefined array issues.
+  Symplify\CodingStandard\Fixer\Property\ArrayPropertyDefaultValueFixer: ~
+
+  # Inside class or interface element `self` should be preferred to the class
+  # name itself.
+  PhpCsFixer\Fixer\ClassNotation\SelfAccessorFixer: ~
+
+  # Class names should match the file name.
+  PhpCsFixer\Fixer\Basic\Psr4Fixer: ~
+
+  # Converts `protected` variables and methods to `private` where possible.
+  PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer: ~
+
+  # Orders the elements of classes/interfaces/traits.
+  PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer: ~
+
+  # Properties MUST not be explicitly initialized with `null`.
+  # public $foo = null; → public $foo;
+  PhpCsFixer\Fixer\ClassNotation\NoNullPropertyInitializationFixer: ~
+
+  # Convert PHP4-style constructors to `__construct`.
+  PhpCsFixer\Fixer\ClassNotation\NoPhp4ConstructorFixer: ~
+
+  # Constructors should be named __construct, not after the class.
+  # コンストラクターは__constructという名前にする必要があります。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\ConstructorNameSniff: ~
+
+  # There should be no empty lines after class opening brace.
+  PhpCsFixer\Fixer\ClassNotation\NoBlankLinesAfterClassOpeningFixer: ~
+
+  # Class static references `self`, `static` and `parent` MUST be in lower case.
+  PhpCsFixer\Fixer\Casing\LowercaseStaticReferenceFixer: ~
+
+

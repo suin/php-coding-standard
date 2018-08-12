@@ -1,0 +1,38 @@
+services:
+  # When instantiating a new class, parenthesis MUST always be present even when
+  # there are no arguments passed to the constructor.
+  # クラスをnewするときは括弧を省略しないでください。
+  PHP_CodeSniffer\Standards\PSR12\Sniffs\Classes\ClassInstantiationSniff: ~
+
+  # All instances created with new keyword must be followed by braces.
+  # new X → new X()
+  PhpCsFixer\Fixer\Operator\NewWithBracesFixer: ~
+
+  # The object operator (->) should not have any space around it.
+  # オブジェクト演算子（->）は、その周囲にスペースを入れてはいけません。
+  # $foo -> bar(); → $foo->bar();
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ObjectOperatorSpacingSniff:
+    ignoreNewlines: true
+
+  # There should not be space before or after object `T_OBJECT_OPERATOR` `->`.
+  PhpCsFixer\Fixer\Operator\ObjectOperatorWithoutWhitespaceFixer: ~
+
+  # Chained object operators when spread out over multiple lines should be the
+  # first thing on the line and be indented by 1 level.
+  # 連鎖オブジェクト演算子が複数の行にまたがって展開されている場合は、その行の最初のものになり、
+  # 1つのレベルで字下げする必要があります。
+  # $foo->bar()\n->baz() → $foo\n->bar()\n->baz()
+  PHP_CodeSniffer\Standards\PEAR\Sniffs\WhiteSpace\ObjectOperatorIndentSniff: ~
+
+  # Add curly braces to indirect variables to make them clear to understand.
+  # 間接的な変数に中括弧を追加して、理解しやすいようにします。
+  # $foo->$callback($baz) → $foo->{$callback}($baz)
+  PhpCsFixer\Fixer\LanguageConstruct\ExplicitIndirectVariableFixer: ~
+
+  # Method chaining MUST be properly indented. Method chaining with different
+  # levels of indentation is not supported.
+  PhpCsFixer\Fixer\Whitespace\MethodChainingIndentationFixer: ~
+
+  # Properties should be set to `null` instead of using `unset`.
+  # unset($this->a) → $this->a = null
+  PhpCsFixer\Fixer\LanguageConstruct\NoUnsetOnPropertyFixer: ~

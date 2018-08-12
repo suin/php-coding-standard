@@ -1,0 +1,135 @@
+services:
+  # The forbidden functions should not be used.
+  # 禁止された関数は使用しないでください。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff:
+    forbiddenFunctions:
+      # 正しい代替手段がある関数
+      sizeof: ~ # countを使うこと
+      create_function: ~ # クロージャを使うこと
+      empty: ~ # countや比較演算子を使うこと
+      isset: ~ # array_key_existsなどを使うこと
+      delete: ~ # nullを代入すること
+      unset: ~ # nullを代入すること
+      eval: ~
+      constant: ~
+      strcmp: ~ # ===演算子
+      # プロセスのライフサイクルに影響を与える副作用がある関数
+      die: ~
+      sleep: ~
+      exit: ~
+      # グローバル空間の状態に影響を与える副作用がある関数
+      setlocale: ~
+      ini_set: ~
+      define: ~
+      # 標準出力にアクセスする副作用がある関数
+      header: ~
+      phpinfo: ~
+      echo: ~
+      print: ~
+      print_r: ~
+      # テスタビリティを低下させる関数(外部システムへの依存)
+      exec: ~
+      system: ~
+      # テスタビリティを低下させる関数(日時)
+      date: ~
+      gmdate: ~
+      date_create: ~
+      time: ~
+      # テスタビリティを低下させる関数(乱数)
+      uniqid: ~
+      shuffle: ~
+      str_shuffle: ~
+      mt_rand: ~
+      mt_srand: ~
+      rand: ~
+      srand: ~
+      random_int: ~
+      random_bytes: ~
+      openssl_random_pseudo_bytes: ~
+      # テスタビリティを低下させる関数(ファイルシステム)
+      chgrp: ~
+      chmod: ~
+      chown: ~
+      copy: ~
+      dirname: ~
+      disk_free_space: ~
+      disk_total_space: ~
+      diskfreespace: ~
+      fclose: ~
+      feof: ~
+      fflush: ~
+      fgetc: ~
+      fgetcsv: ~
+      fgets: ~
+      fgetss: ~
+      file_exists: ~
+      file_get_contents: ~
+      file_put_contents: ~
+      file: ~
+      fileatime: ~
+      filectime: ~
+      filegroup: ~
+      fileinode: ~
+      filemtime: ~
+      fileowner: ~
+      fileperms: ~
+      filesize: ~
+      filetype: ~
+      flock: ~
+      fnmatch: ~
+      fopen: ~
+      fpassthru: ~
+      fputcsv: ~
+      fputs: ~
+      fread: ~
+      fscanf: ~
+      fseek: ~
+      fstat: ~
+      ftell: ~
+      ftruncate: ~
+      fwrite: ~
+      glob: ~
+      is_​dir: ~
+      is_​executable: ~
+      is_​file: ~
+      is_​link: ~
+      is_​readable: ~
+      is_​uploaded_​file: ~
+      is_​writable: ~
+      is_​writeable: ~
+      lchgrp: ~
+      lchown: ~
+      link: ~
+      linkinfo: ~
+      lstat: ~
+      mkdir: ~
+      move_​uploaded_​file: ~
+      parse_​ini_​file: ~
+      parse_​ini_​string: ~
+      pathinfo: ~
+      pclose: ~
+      popen: ~
+      readfile: ~
+      readlink: ~
+      realpath_​cache_​get: ~
+      realpath_​cache_​size: ~
+      realpath: ~
+      rename: ~
+      rewind: ~
+      rmdir: ~
+      set_​file_​buffer: ~
+      stat: ~
+      symlink: ~
+      tempnam: ~
+      tmpfile: ~
+      touch: ~
+      umask: ~
+      unlink: ~
+
+  # Debug functions should not be left in the code: d, dd, dump, var_dump
+  # デバッグ関数を残さないでください。
+  Symplify\CodingStandard\Sniffs\Debug\DebugFunctionCallSniff: ~
+
+  # Forbidden functions MUST BE commented
+  # PedroTroller\CS\Fixer\CodingStyle\ForbiddenFunctionsFixer: ~
+

@@ -1,0 +1,7 @@
+services:
+  # Include/Require should be followed by absolute path.
+  Symplify\CodingStandard\Fixer\ControlStructure\RequireFollowedByAbsolutePathFixer: ~
+
+  # Include/Require and file path should be divided with a single space. File path should not be placed under brackets.
+  # include()とrequire()のファイルパスは、単一のスペースで区切る必要があります。 ファイルのパスは角カッコの下に置かないでください。
+  PhpCsFixer\Fixer\ControlStructure\IncludeFixer: ~

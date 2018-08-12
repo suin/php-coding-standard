@@ -1,0 +1,11 @@
+# Code Metrics • コードメトリクス
+services:
+  # Functions should not have a cyclomatic complexity greater than 20, and
+  # should try to stay below a complexity of 10.
+  # 関数は、20を超える循環的複雑度を持つべきではなく、10以下にとどまるようにする必要があります。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\Metrics\CyclomaticComplexitySniff: ~
+
+  # Functions should not have a nesting level greater than 10, and should try
+  # to stay below 5.
+  # 関数は10より大きいネストレベルを持つべきではなく、5より下にとどまるようにする必要があります。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\Metrics\NestingLevelSniff: ~

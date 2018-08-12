@@ -1,0 +1,36 @@
+services:
+  # Prohibits uses from the same namespace.
+  # 同じ名前空間のクラスはuseしないでください。useする必要がありません。
+  SlevomatCodingStandard\Sniffs\Namespaces\UseFromSameNamespaceSniff: ~
+
+  # Looks for use alias that is same as unqualified name.
+  # useでクラス名と同じエイリアス名をつけないでください。エイリアスにする必要がありません。
+  SlevomatCodingStandard\Sniffs\Namespaces\UselessAliasSniff: ~
+
+  # Compound namespaces with a depth of more than two MUST NOT be used.
+  # 名前空間のuseは簡潔にしてください。
+  PHP_CodeSniffer\Standards\PSR12\Sniffs\Namespaces\CompoundNamespaceDepthSniff: ~
+
+  # Disallows leading backslash in use statement: use \Foo\Bar → use Foo\Bar
+  # useステートメントでは、名前空間をバックスラッシュで始めてはなりません。
+  SlevomatCodingStandard\Sniffs\Namespaces\UseDoesNotStartWithBackslashSniff: ~
+
+  # Types should not be referenced via a fully/partially qualified name, but via
+  # a use statement.
+  Symplify\CodingStandard\Fixer\Import\ImportNamespacedNameFixer:
+    include_doc_blocks: true # false by default
+
+  # Ordering `use` statements.
+  PhpCsFixer\Fixer\Import\OrderedImportsFixer: ~
+
+  # Unused `use` statements must be removed.
+  PhpCsFixer\Fixer\Import\NoUnusedImportsFixer: ~
+
+  # Remove leading slashes in `use` clauses.
+  # use \Bar; → use Bar;
+  PhpCsFixer\Fixer\Import\NoLeadingImportSlashFixer: ~
+
+  # Transforms imported FQCN parameters and return types in function arguments
+  # to short version.
+  # インポートされたFQCNパラメータと関数型の戻り型を短いバージョンに変換します。
+  PhpCsFixer\Fixer\Import\FullyQualifiedStrictTypesFixer: ~

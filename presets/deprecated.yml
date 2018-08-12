@@ -1,0 +1,4 @@
+services:
+  # Replace deprecated `ereg` regular expression functions with `preg`.
+  # 廃止予定の `ereg`正規表現関数を` preg`に置き換えます。
+  PhpCsFixer\Fixer\Alias\EregToPregFixer: ~

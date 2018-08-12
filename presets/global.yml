@@ -1,0 +1,4 @@
+services:
+  # Stops the usage of the "global" keyword.
+  # globalキーワードの使用を停止します。
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\PHP\GlobalKeywordSniff: ~

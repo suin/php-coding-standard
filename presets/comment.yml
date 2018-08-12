@@ -1,0 +1,32 @@
+# Comment • コメント
+services:
+  # Perl-style # comments are not allowed.
+  # Perlスタイルの＃コメントは許可されていません。
+  PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\InlineCommentSniff: ~
+
+  # FIXME Statements should be taken care of.
+  # FIXMEコメントを残さないでください。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\Commenting\FixmeSniff: ~
+
+  # TODO Statements should be taken care of.
+  # TODOコメントを残さないでください。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\Commenting\TodoSniff: ~
+
+  # Comments with annotation should be docblock when used on structural elements.
+  # 注釈付きのコメントは、構造要素に使用するときはdocblockでなければなりません。
+  # /* @var bool $isFoo */ → /** @var bool $isFoo */
+  PhpCsFixer\Fixer\Comment\CommentToPhpdocFixer: ~
+
+  # There should not be comments with valid code.
+  # コメントアウトしたソースコードを残さないでください。
+  Symplify\CodingStandard\Sniffs\Debug\CommentedOutCodeSniff: ~
+
+  # Puts a space after every inline comment start.
+  SlamCsFixer\InlineCommentSpacerFixer: ~
+
+  # Single-line comments and multi-line comments with only one line of actual
+  # content should use the `//` syntax.
+  PhpCsFixer\Fixer\Comment\SingleLineCommentStyleFixer: ~
+
+  # There should not be any empty comments.
+  PhpCsFixer\Fixer\Comment\NoEmptyCommentFixer: ~

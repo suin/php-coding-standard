@@ -1,0 +1,286 @@
+# PSR-2: Coding Style Guide
+# https://www.php-fig.org/psr/psr-2/
+
+# 2. General
+# ==========
+
+# 2.1. Basic Coding Standard
+# --------------------------
+
+# Code MUST follow all rules outlined in PSR-1.
+imports:
+- { resource: psr1.yml }
+
+services:
+  # 2.2. Files
+  # ----------
+
+  # All PHP files MUST use the Unix LF (linefeed) line ending.
+  PhpCsFixer\Fixer\Whitespace\LineEndingFixer:
+  PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineEndingsSniff:
+    eolChar: \n
+
+  # All PHP files MUST end with a single blank line.
+  PhpCsFixer\Fixer\Whitespace\SingleBlankLineAtEofFixer:
+  PHP_CodeSniffer\Standards\PSR2\Sniffs\Files\EndFileNewlineSniff:
+
+  # The closing ?> tag MUST be omitted from files containing only PHP.
+  PhpCsFixer\Fixer\PhpTag\NoClosingTagFixer:
+  PHP_CodeSniffer\Standards\PSR2\Sniffs\Files\ClosingTagSniff:
+
+  # 2.3. Lines
+  # ----------
+
+  # There MUST NOT be a hard limit on line length.
+  #
+  # The soft limit on line length MUST be 120 characters; automated style checkers
+  # MUST warn but MUST NOT error at the soft limit.
+  #
+  # Lines SHOULD NOT be longer than 80 characters; lines longer than that SHOULD
+  # be split into multiple subsequent lines of no more than 80 characters each.
+  # (There is no checking)
+
+  # There MUST NOT be trailing whitespace at the end of non-blank lines.
+  PhpCsFixer\Fixer\Whitespace\NoTrailingWhitespaceFixer:
+  PhpCsFixer\Fixer\Comment\NoTrailingWhitespaceInCommentFixer:
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\SuperfluousWhitespaceSniff:
+    ignoreBlankLines: true
+
+  # Blank lines MAY be added to improve readability and to indicate related
+  # blocks of code.
+  # (There is no checking)
+
+  # There MUST NOT be more than one statement per line.
+  PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\DisallowMultipleStatementsSniff:
+
+  # 2.4. Indenting
+  # --------------
+
+  # Code MUST use an indent of 4 spaces, and MUST NOT use tabs for indenting.
+  PhpCsFixer\Fixer\Whitespace\IndentationTypeFixer:
+  PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\ScopeIndentSniff:
+    ignoreIndentationTokens:
+    - T_COMMENT
+    - T_DOC_COMMENT_OPEN_TAG
+  PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\DisallowTabIndentSniff:
+
+  # 2.5. Keywords and True/False/Null
+  # ---------------------------------
+
+  # PHP keywords MUST be in lower case.
+  PhpCsFixer\Fixer\Casing\LowercaseKeywordsFixer:
+  PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\LowerCaseKeywordSniff:
+
+  # The PHP constants true, false, and null MUST be in lower case.
+  PhpCsFixer\Fixer\Casing\LowercaseConstantsFixer:
+  PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\LowerCaseConstantSniff:
+
+  # 3. Namespace and Use Declarations
+  # =================================
+
+  # When present, there MUST be one blank line after the namespace declaration.
+  PhpCsFixer\Fixer\NamespaceNotation\BlankLineAfterNamespaceFixer:
+  PHP_CodeSniffer\Standards\PSR2\Sniffs\Namespaces\NamespaceDeclarationSniff:
+
+  # When present, all use declarations MUST go after the namespace declaration.
+  #
+  # There MUST be one use keyword per declaration.
+  #
+  # There MUST be one blank line after the use block.
+  PhpCsFixer\Fixer\Import\SingleImportPerStatementFixer:
+  PhpCsFixer\Fixer\Import\SingleLineAfterImportsFixer:
+  PHP_CodeSniffer\Standards\PSR2\Sniffs\Namespaces\UseDeclarationSniff:
+
+  # 4. Classes, Properties, and Methods
+  # ===================================
+  # The term “class” refers to all classes, interfaces, and traits.
+
+  # 4.1. Extends and Implements
+  # ---------------------------
+
+  # The extends and implements keywords MUST be declared on the same line as
+  # the class name.
+  #
+  # The opening brace for the class MUST go on its own line; the closing brace
+  # for the class MUST go on the next line after the body.
+  #
+  # Lists of implements MAY be split across multiple lines, where each
+  # subsequent line is indented once. When doing so, the first item in the list
+  # MUST be on the next line, and there MUST be only one interface per line.
+  PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer:
+  PhpCsFixer\Fixer\Basic\BracesFixer:
+  PHP_CodeSniffer\Standards\PSR2\Sniffs\Classes\ClassDeclarationSniff:
+
+  # 4.2. Properties
+  # ---------------
+
+  # Visibility MUST be declared on all properties.
+  #
+  # The var keyword MUST NOT be used to declare a property.
+  #
+  # There MUST NOT be more than one property declared per statement.
+  #
+  # Property names SHOULD NOT be prefixed with a single underscore to indicate
+  # protected or private visibility.
+  PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer:
+  PhpCsFixer\Fixer\ClassNotation\SingleClassElementPerStatementFixer:
+    elements:
+    - 'property'
+  PHP_CodeSniffer\Standards\PSR2\Sniffs\Classes\PropertyDeclarationSniff:
+
+  # 4.3. Methods
+  # ------------
+  PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer:
+
+  # Visibility MUST be declared on all methods.
+  #
+  # checked in PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer:
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\Scope\MethodScopeSniff:
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ScopeKeywordSpacingSniff:
+
+  # Method names SHOULD NOT be prefixed with a single underscore to indicate
+  # protected or private visibility.
+  PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\MethodDeclarationSniff:
+
+  # Method names MUST NOT be declared with a space after the method name. The
+  # opening brace MUST go on its own line, and the closing brace MUST go on the
+  # next line following the body. There MUST NOT be a space after the opening
+  # parenthesis, and there MUST NOT be a space before the closing parenthesis.
+  PhpCsFixer\Fixer\Whitespace\NoSpacesInsideParenthesisFixer:
+  PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionClosingBraceSniff:
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\LowercaseFunctionKeywordsSniff:
+
+  # 4.4. Method Arguments
+  # ---------------------
+
+  # In the argument list, there MUST NOT be a space before each comma, and there
+  # MUST be one space after each comma.
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\FunctionDeclarationArgumentSpacingSniff:
+    equalsSpacing: 1
+
+  # Method arguments with default values MUST go at the end of the argument
+  # list.
+  PHP_CodeSniffer\Standards\PEAR\Sniffs\Functions\ValidDefaultValueSniff:
+
+  # Argument lists MAY be split across multiple lines, where each subsequent line
+  # is indented once. When doing so, the first item in the list MUST be on the
+  # next line, and there MUST be only one argument per line.
+  #
+  # When the argument list is split across multiple lines, the closing parenthesis
+  # and opening brace MUST be placed together on their own line with one space
+  # between them.
+  PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer:
+    ensure_fully_multiline: true
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\MultiLineFunctionDeclarationSniff:
+
+  # 4.5. abstract, final, and static
+  # --------------------------------
+
+  # When present, the abstract and final declarations MUST precede the
+  # visibility declaration.
+  #
+  # When present, the static declaration MUST come after the visibility
+  # declaration.
+  #
+  # checked in PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer:
+  # checked in PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\MethodDeclarationSniff:
+
+  # 4.6. Method and Function Calls
+  # ------------------------------
+
+  # When making a method or function call, there MUST NOT be a space between the
+  # method or function name and the opening parenthesis, there MUST NOT be a space
+  # after the opening parenthesis, and there MUST NOT be a space before the
+  # closing parenthesis. In the argument list, there MUST NOT be a space before
+  # each comma, and there MUST be one space after each comma.
+  #
+  # Argument lists MAY be split across multiple lines, where each subsequent line
+  # is indented once. When doing so, the first item in the list MUST be on the
+  # next line, and there MUST be only one argument per line.
+  #
+  # checked in PhpCsFixer\Fixer\Whitespace\NoSpacesInsideParenthesisFixer:
+  # checked in PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer:
+  PhpCsFixer\Fixer\FunctionNotation\NoSpacesAfterFunctionNameFixer:
+  PHP_CodeSniffer\Standards\Generic\Sniffs\Functions\FunctionCallArgumentSpacingSniff:
+  PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionCallSignatureSniff:
+
+  # 5. Control Structures
+  # =====================
+  # The general style rules for control structures are as follows:
+  #
+  # * There MUST be one space after the control structure keyword
+  # * There MUST NOT be a space after the opening parenthesis
+  # * There MUST NOT be a space before the closing parenthesis
+  # * There MUST be one space between the closing parenthesis and the opening
+  #   brace
+  # * The structure body MUST be indented once
+  # * The closing brace MUST be on the next line after the body
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ControlSignatureSniff:
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff:
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ScopeClosingBraceSniff:
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ForEachLoopDeclarationSniff:
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ForLoopDeclarationSniff:
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\LowercaseDeclarationSniff:
+  PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\ControlStructureSpacingSniff:
+
+  # The body of each structure MUST be enclosed by braces. This standardizes how
+  # the structures look, and reduces the likelihood of introducing errors as new
+  # lines get added to the body.
+  PHP_CodeSniffer\Standards\Generic\Sniffs\ControlStructures\InlineControlStructureSniff:
+
+  # 5.1. if, elseif, else
+  # ---------------------
+
+  # An if structure looks like the following. Note the placement of parentheses,
+  # spaces, and braces; and that else and elseif are on the same line as the
+  # closing brace from the earlier body.
+  #
+  # The keyword elseif SHOULD be used instead of else if so that all control
+  # keywords look like single words.
+  PhpCsFixer\Fixer\ControlStructure\ElseifFixer:
+  PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\ElseIfDeclarationSniff:
+
+  # 5.2. switch, case
+  # -----------------
+
+  # A switch structure looks like the following. Note the placement of
+  # parentheses, spaces, and braces. The case statement MUST be indented once
+  # from switch, and the break keyword (or other terminating keyword) MUST be
+  # indented at the same level as the case body. There MUST be a comment such as
+  # // no break when fall-through is intentional in a non-empty case body.
+  PhpCsFixer\Fixer\ControlStructure\SwitchCaseSemicolonToColonFixer:
+  PhpCsFixer\Fixer\ControlStructure\SwitchCaseSpaceFixer:
+  PhpCsFixer\Fixer\ControlStructure\NoBreakCommentFixer:
+  PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\SwitchDeclarationSniff:
+
+  # 6. Closures
+  # ===========
+
+  # Closures MUST be declared with a space after the function keyword, and a
+  # space before and after the use keyword.
+  #
+  # The opening brace MUST go on the same line, and the closing brace MUST go on
+  # the next line following the body.
+  #
+  # There MUST NOT be a space after the opening parenthesis of the argument list
+  # or variable list, and there MUST NOT be a space before the closing parenthesis
+  # of the argument list or variable list.
+  #
+  # In the argument list and variable list, there MUST NOT be a space before each
+  # comma, and there MUST be one space after each comma.
+  #
+  # Closure arguments with default values MUST go at the end of the argument
+  # list.
+  #
+  # checked in PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\MultiLineFunctionDeclarationSniff:
+
+
+parameters:
+  skip:
+    # Only some rules from ControlStructureSpacingSniff are part of PSR-2, skip the rest:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.SpacingAfterOpenBrace:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.SpaceBeforeCloseBrace:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.LineAfterClose:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.NoLineAfterClose:
+    # PSR-2 does not enforce line alignment (https://www.php-fig.org/psr/psr-2/#7-conclusion)
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionCallSignatureSniff.OpeningIndent:

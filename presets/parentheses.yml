@@ -1,0 +1,12 @@
+services:
+  # Arbitrary sets of parentheses should have no spaces inside.
+  # 括弧の任意のセットは、内部にスペースを入れてはいけません。
+  # ( null !== $extra ) → (null !== $extra)
+  PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\ArbitraryParenthesesSpacingSniff:
+    ignoreNewlines: true
+
+  # Removes unneeded parentheses around control statements.
+  # break(2) → break 2
+  # echo("...") → echo "..."
+  # return (1 + 2) → return 1 + 2
+  PhpCsFixer\Fixer\ControlStructure\NoUnneededControlParenthesesFixer: ~

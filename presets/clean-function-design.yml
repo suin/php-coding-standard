@@ -1,0 +1,16 @@
+services:
+  # Functions/methods cannot have parameters that default to a boolean.
+  # フラグパラメータ(デフォルト値にbool値がセットされたもの)は避け、メソッドを分割してください。
+  Codor\Sniffs\Files\MethodFlagParameterSniff: ~
+
+  # Requires use of early exit.
+  # 早期リターンを使用してください。
+  SlevomatCodingStandard\Sniffs\ControlStructures\EarlyExitSniff: ~
+
+  # Use explicit return values over magic "&$variable" reference.
+  # 関数は結果変数を参照渡しで受け取る設計より、returnで結果を返す設計にしてください。
+  Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenReferenceSniff: ~
+
+  # Functions/methods must not return null.
+  # 関数やメソッドはnullを返してはいけません。
+  Codor\Sniffs\Files\ReturnNullSniff: ~

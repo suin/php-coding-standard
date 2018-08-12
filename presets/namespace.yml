@@ -1,0 +1,7 @@
+services:
+  # The namespace declaration line shouldn't contain leading whitespace.
+  # `   namepsace Foo;` → `namespace Foo;`
+  PhpCsFixer\Fixer\NamespaceNotation\NoLeadingNamespaceWhitespaceFixer: ~
+
+  # There should be exactly one blank line before a namespace declaration.
+  PhpCsFixer\Fixer\NamespaceNotation\SingleBlankLineBeforeNamespaceFixer: ~

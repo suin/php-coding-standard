@@ -1,0 +1,28 @@
+services:
+  # Deprecated functions should not be used.
+  # 廃止された関数は使用しないでください。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\DeprecatedFunctionsSniff: ~
+
+  # Call-time pass-by-reference is not allowed. It should be declared in the
+  # function definition.
+  # 関数呼び出し時の参照渡しは許可されません。関数定義で宣言する必要があります。
+  # foo(&$val) → foo($val)
+  PHP_CodeSniffer\Standards\Generic\Sniffs\Functions\CallTimePassByReferenceSniff: ~
+
+  # Ensures all calls to inbuilt PHP functions are lowercase.
+  # 組み込みのPHP関数へのすべての呼び出しが小文字であることを保証します。
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\PHP\LowercasePHPFunctionsSniff: ~
+
+  # Function defined by PHP should be called using the correct casing.
+  # STRLEN($str) → strlen($str)
+  PhpCsFixer\Fixer\Casing\NativeFunctionCasingFixer: ~
+
+  # Looks for unused inherited variables passed to closure via use.
+  # クロージャで使用されないレキシカルスコープ変数は削除してください。
+  SlevomatCodingStandard\Sniffs\Functions\UnusedInheritedVariablePassedToClosureSniff: ~
+
+  # Equal sign in declare statement should be surrounded by spaces or not
+  # following configuration.
+  # 等号の宣言文は、スペースで囲むか、設定に従わないでください。
+  # declare(ticks =  1); → declare(ticks=1);
+  PhpCsFixer\Fixer\LanguageConstruct\DeclareEqualNormalizeFixer: ~

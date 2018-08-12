@@ -1,0 +1,3 @@
+services:
+  # Replace accidental usage of homoglyphs (non ascii characters) in names.
+  PhpCsFixer\Fixer\Naming\NoHomoglyphNamesFixer: ~

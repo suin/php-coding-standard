@@ -1,0 +1,34 @@
+services:
+  # A cast statement must be followed by a single space.
+  # キャストステートメントの後には、1つのスペースが必要です。
+  # (string)$a → (string) $a
+  # PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\SpaceAfterCastSniff: ~
+
+  # Casts should not have whitespace inside the parentheses.
+  # キャストはカッコ内に空白を入れてはいけません。
+  # ( int ) $a → (int) $a
+  # PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\CastSpacingSniff: ~
+
+  # A single space or none should be between cast and variable.
+  # 空白と空白は、キャストと変数の間にある必要があります。
+  # ( int )$a -> (int) $a
+  PhpCsFixer\Fixer\CastNotation\CastSpacesFixer: ~
+
+  # Short cast `bool` using double exclamation mark should not be used.
+  # !!$foo → (bool) $foo
+  PhpCsFixer\Fixer\CastNotation\NoShortBoolCastFixer: ~
+
+  # Replaces `intval`, `floatval`, `doubleval`, `strval` and `boolval` function
+  # calls with according type casting operator.
+  # intval($b) → (int) $b
+  PhpCsFixer\Fixer\CastNotation\ModernizeTypesCastingFixer: ~
+
+  # Cast `(boolean)` and `(integer)` should be written as `(bool)` and `(int)`,
+  # `(double)` and `(real)` as `(float)`, `(binary)` as `(string)`.
+  PhpCsFixer\Fixer\CastNotation\ShortScalarCastFixer: ~
+
+  # Cast should be written in lower case.
+  PhpCsFixer\Fixer\CastNotation\LowercaseCastFixer: ~
+
+  # Cast shall be used, not `settype`.
+  PhpCsFixer\Fixer\Alias\SetTypeToCastFixer: ~

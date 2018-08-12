@@ -1,0 +1,15 @@
+# Testable Class Design • テスタブルなクラス設計
+services:
+  # Warns if a class extends another class. Goal is to promote composition over
+  # inheritance (https://en.wikipedia.org/wiki/Composition_over_inheritance).
+  # 継承よりもコンポジションを使用してください。
+  Codor\Sniffs\Classes\ExtendsSniff: ~
+
+  # Use services and constructor injection over static method.
+  # 静的メソッドを定義しないでください。代わりに依存性の注入で使えるような設計にしてください。
+  Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenStaticFunctionSniff: ~
+
+  # Use service and constructor injection rather than instantiation with new.
+  # クラスをnewしないでください。代わりに依存性の注入を使用して下さい。
+  Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff:
+    allowedClasses: []

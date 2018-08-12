@@ -1,0 +1,25 @@
+services:
+  # Strings should not be concatenated together.
+  # 不必要な文字列結合はしないでください。
+  PHP_CodeSniffer\Standards\Generic\Sniffs\Strings\UnnecessaryStringConcatSniff: ~
+
+  # Prefer sprintf() over multiple concats ( . ).
+  # 文字列結合が多い場合、sprintf関数を使用してください。
+  Symplify\CodingStandard\Sniffs\ControlStructure\SprintfOverContactSniff: ~
+
+  # Converts implicit variables into explicit ones in double-quoted strings or heredoc syntax.
+  # 暗黙の変数を、二重引用符で囲まれた文字列またはheredoc構文で明示的な変数に変換します。
+  # "My name is $name !" → "My name is ${name} !"
+  PhpCsFixer\Fixer\StringNotation\ExplicitStringVariableFixer: ~
+
+  # Convert double quotes to single quotes for simple strings.
+  PhpCsFixer\Fixer\StringNotation\SingleQuoteFixer: ~
+
+  # Escape implicit backslashes in strings and heredocs to ease the understanding of which are special chars interpreted by PHP and which not.
+  # 文字列やheredocの暗黙のバックスラッシュをエスケープして、どの文字がPHPによって解釈されるかを理解しやすくします。
+  # "Interpret my \n but not my \a" → "Interpret my \n but not my \\a"
+  PhpCsFixer\Fixer\StringNotation\EscapeImplicitBackslashesFixer: ~
+
+  # Convert `heredoc` to `nowdoc` where possible.
+  # 可能であれば、 `heredoc`を` nowdoc`に変換してください。
+  PhpCsFixer\Fixer\StringNotation\HeredocToNowdocFixer: ~
